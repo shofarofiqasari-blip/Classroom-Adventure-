@@ -1,0 +1,39 @@
+
+name: Extract Classroom Adventure ZIP
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/unpack.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract ZIP files
+        run: |
+          ZIP_FILE=$(find . -maxdepth 1 -name "*.zip" -print -quit)
+          if [ -z "$ZIP_FILE" ]; then
+            echo "ZIP file not found"
+            exit 1
+          fi
+          mkdir extracted
+          unzip -q "$ZIP_FILE" -d extracted
+          cp -a extracted/. .
+
+      - name: Save extracted files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Extract Classroom Adventure project" || echo "No changes"
+          git push
+          
