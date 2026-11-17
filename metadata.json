@@ -1,0 +1,6 @@
+{
+  "name": "The Treasure of 100 Good Jobs",
+  "description": "Game petualangan edukatif kartun Bahasa Inggris Kelas 2 SDIT Bina Insan Cendekia bersama Ustadzah Shofa untuk mengumpulkan 100 Bintang Good Job.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

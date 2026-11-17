@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #eff8ff;
+    color: #1e293b;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Fredoka', 'Nunito', sans-serif;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pageFlipIn {
+  0% {
+    opacity: 0;
+    transform: perspective(1200px) rotateY(-10deg) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1200px) rotateY(0deg) scale(1);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes floatDrift {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  50% {
+    transform: translateX(18px) translateY(-6px);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+
+@keyframes balloonFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(4deg);
+  }
+}
+
+@keyframes gentleWave {
+  0%, 100% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  25% {
+    transform: rotate(2deg) translateY(-4px);
+  }
+  75% {
+    transform: rotate(-2deg) translateY(-2px);
+  }
+}
+
+@keyframes twinkleStar {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.85) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.18) rotate(12deg);
+  }
+}
+
+@keyframes praisePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(12px);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.08) translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes iconBob {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.04);
+  }
+}
+
+@keyframes iconWiggle {
+  0%, 100% {
+    transform: rotate(-4deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(5deg) translateY(-5px);
+  }
+}
+
+@keyframes planeFly {
+  0%, 100% {
+    transform: translate(-5px, 2px) rotate(-4deg);
+  }
+  50% {
+    transform: translate(6px, -6px) rotate(3deg);
+  }
+}
+
+@keyframes pencilSketch {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(-6deg);
+  }
+  33% {
+    transform: translate(5px, -4px) rotate(4deg);
+  }
+  66% {
+    transform: translate(-3px, -6px) rotate(-2deg);
+  }
+}
+
+@keyframes magnifyScan {
+  0%, 100% {
+    transform: translate(-6px, 2px) rotate(-8deg) scale(1);
+  }
+  50% {
+    transform: translate(4px, -6px) rotate(10deg) scale(1.1);
+  }
+}
+
+@keyframes orbitSpin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-page-flip {
+  animation: pageFlipIn 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform-origin: left center;
+}
+
+.animate-float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-float-drift {
+  animation: floatDrift 7s ease-in-out infinite;
+}
+
+.animate-balloon {
+  animation: balloonFloat 5.5s ease-in-out infinite;
+}
+
+.animate-mascot-wave {
+  animation: gentleWave 4.2s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkleStar 2.6s ease-in-out infinite;
+}
+
+.animate-praise-pop {
+  animation: praisePop 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-icon-bob {
+  animation: iconBob 2.8s ease-in-out infinite;
+}
+
+.animate-icon-wiggle {
+  animation: iconWiggle 3.1s ease-in-out infinite;
+}
+
+.animate-plane-fly {
+  animation: planeFly 2.6s ease-in-out infinite;
+}
+
+.animate-pencil-sketch {
+  animation: pencilSketch 2.5s ease-in-out infinite;
+}
+
+.animate-magnify-scan {
+  animation: magnifyScan 2.7s ease-in-out infinite;
+}
+
+.animate-orbit-light {
+  animation: orbitSpin 4.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-drift,
+  .animate-balloon,
+  .animate-mascot-wave,
+  .animate-twinkle,
+  .animate-icon-bob,
+  .animate-icon-wiggle,
+  .animate-plane-fly,
+  .animate-pencil-sketch,
+  .animate-magnify-scan,
+  .animate-orbit-light,
+  .animate-bounce,
+  .animate-pulse {
+    animation: none !important;
+  }
+}
+
+/* Print Styles for Certificate */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .certificate-print-area,
+  .certificate-print-area * {
+    visibility: visible;
+  }
+  .certificate-print-area {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
